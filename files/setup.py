@@ -31,6 +31,7 @@ if (major, minor) >= (3, 11):
 try:
     import ctypes
     ctypes.CDLL('libsqlite3.so').sqlite3_load_extension
+    macros.append(('PY_SQLITE_ENABLE_LOAD_EXTENSION', '1'))
 except AttributeError:
     macros.append(('SQLITE_OMIT_LOAD_EXTENSION', '1'))
 
